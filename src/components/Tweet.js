@@ -22,8 +22,12 @@ class Tweet extends Component {
     }
 
     render() {
-        console.log('PROPS',this.props);
         const { tweet } = this.props;
+
+        if (tweet === null) {
+            return <p>This Tweet does not exists.</p>
+        }
+
         const { name, id, timestamp, text, avatar, likes, replies, hasLiked, parent } = tweet;
 
         return (
@@ -60,7 +64,6 @@ class Tweet extends Component {
                             </button>
                             <span>{likes > 0 && likes}</span>
                     </div>
-
                 </div>
             </div>
         )
