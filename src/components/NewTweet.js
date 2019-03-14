@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { handleAddTweet } from '../actions/tweets';
 
 class NewTweet extends Component {
     state = {
@@ -17,10 +18,11 @@ class NewTweet extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { text } = this.state;
-        // const { dispatch, id } = this.props;
+        const { dispatch, id } = this.props;
 
         console.log('NEW TWEET text: ', text);
         //TODO add new tweet to state;
+        dispatch(handleAddTweet(text, id));
     
         this.setState(()=> ({
             text: '',
