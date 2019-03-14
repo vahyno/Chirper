@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Tweet from './Tweet';
 
 class Dashboard extends Component {
     render(){
         const { tweetIDs } = this.props; 
         return (
-            <div>
-                <h3 className='center'>Your Timeline</h3>
-                <ul className='dashboard-list'>
-                    {tweetIDs.map((id) => (
-                        <li className='tweet' key={id}>{id}</li>
-                    ))}
-                </ul>
-            </div>
+            <ul className='dashboard-list'>
+            <h3 className='center'>Your Timeline</h3>
+                {tweetIDs.map((id) => (
+                    <li className='tweet' key={id}>
+                        <Tweet id={id} />
+                    </li>
+                ))}
+            </ul>
         )
     }
 }
